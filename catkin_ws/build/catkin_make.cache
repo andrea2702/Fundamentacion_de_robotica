@@ -1,0 +1,2 @@
+basic_comms:courseworks
+-DCATKIN_DEVEL_PREFIX=/home/ga3ta/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ga3ta/catkin_ws/install -G Unix Makefiles
