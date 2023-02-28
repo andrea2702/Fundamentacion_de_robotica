@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam file = "$(find pid_controller)/config/system_params.yaml" command = "load" />
+    <rosparam file = "$(find pid_controller)/config/control_params.yaml" command = "load" />
+    <rosparam file = "$(find pid_controller)/config/setpoint_params.yaml" command = "load" />
+    <node pkg="pid_controller" type="controller.py" name="controller" output="screen" launch-prefix="gnome-terminal --command"/>
+    <node pkg="pid_controller" type="system.py" name="system" output="screen" launch-prefix="gnome-terminal --command" />
+    <node pkg="pid_controller" type="set_point_generator.py" name="set_point_generator" output="screen" launch-prefix="gnome-terminal --command" />
+    <node name="rqt_plot" pkg="rqt_plot" type="rqt_plot" output="screen"  args="/set_point/set_point /motor_input/input /motor_output/output /error"/>
+</launch>
